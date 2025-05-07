@@ -67,7 +67,8 @@ used.
 ![Screenshot 2025-04-30 164416](https://github.com/user-attachments/assets/d867b288-5680-4fc1-b7e5-33b12b6ce11e)
 
 #### Area report:
-![Screenshot 2025-04-30 164631](https://github.com/user-attachments/assets/1b07c70e-f00b-47d2-8850-f3c7fcd45c21)
+![WhatsApp Image 2025-05-07 at 10 23 49_6a6bc395](https://github.com/user-attachments/assets/4eea397c-a128-4f01-9c80-505e8960c71e)
+
 
 #### Power Report:
 ![Screenshot (8)](https://github.com/user-attachments/assets/b05859a9-f430-407f-a163-d27ee306d8c7)
