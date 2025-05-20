@@ -10,6 +10,117 @@ Functional Simulation: Incisive Simulator (ncvlog, ncelab, ncsim)
 
 Synthesis: Genus
 
+PROGRAM:
+
+
+COUNTER.V:
+
+`timescale 1ns/1ns
+
+module counter(clk,m,rst,count);
+
+input clk,m,rst;
+
+output reg [3:0] count;
+
+always@(posedge clk or negedge rst)
+
+begin
+
+if (!rst)
+
+count=0;
+
+else if(m)
+
+count=count+1;
+
+else
+
+count=count-1;
+
+end
+
+endmodule
+
+
+
+COUNTER.TCL :
+
+read_libs /cadence/install/FOUNDRY-01/digital/90nm/dig/lib/slow.lib
+
+read_hdl counter.v
+
+elaborate
+
+read_sdc input_constraints.sdc 
+
+syn_generic
+
+report_area
+
+syn_map
+
+report_area
+
+syn_opt
+
+report_area 
+
+report_area > counter_area.txt
+
+report_power > counter.txt
+
+write_hdl >counter.v
+
+gui_show
+
+
+
+COUNTER_TEST.V :
+
+`timescale 1ns/1ns
+
+module counter_test;
+
+reg clk,rst,m;
+
+wire [3:0] count;
+
+initial
+
+begin
+
+clk=0;
+
+rst=0;#5;
+
+rst=1;
+
+end
+
+initial
+
+begin
+
+m=1;
+
+#160 m=0;
+
+end
+
+counter dut(clk,m,rst,count);
+
+always #5 clk=~clk;
+
+initial $monitor("Time=%t rst=%b clk=%b count=%b" , $time,rst,clk,count);
+
+initial
+
+#320 $finish;
+
+endmodule
+
 ### Step 1: Getting Started
 
 Synthesis requires three files as follows,
